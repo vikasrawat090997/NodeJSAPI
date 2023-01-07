@@ -1,13 +1,13 @@
 var config = require("../config/dbconfig");
+var config1 = require("../config/dbconfig");
 const sql = require("mssql");
 const StudentModel = require("../model/student.model");
 
 async function getRecords(req, res) {
   try {
-    console.log(StudentModel);
-
-    let pool = await sql.connect(config);
-    let result = await pool.request().query("SELECT * from Student");
+    let pool = await sql.connect(config.config);
+    let result = await pool.request().query("SELECT * from userMaster");
+    pool.close();
     return result.recordset;
   } catch (error) {
     console.log(error);
