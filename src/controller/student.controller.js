@@ -1,7 +1,20 @@
 var Db = require("../repository/student.repository");
-
+const { createLogger, format, transports } = require("winston");
+const { combine, timestamp, label, prettyPrint } = format;
+const logger = createLogger({
+  format: combine(label({ label: "API" }), timestamp(), prettyPrint()),
+  transports: [
+    //new transports.Console(),
+    new transports.File({ filename: "combined.log" }),
+    new transports.File({ filename: "error.log", level: "error" }),
+  ],
+});
 async function getRecords(req, res) {
   try {
+    logger.log({
+      level: "info",
+      message: "API is hitting properly",
+    });
     Db.getRecords().then((data) => {
       // Respond with some data and return status OK
       return res.status(200).json(data);

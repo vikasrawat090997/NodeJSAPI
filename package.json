@@ -15,8 +15,12 @@
     "express": "^4.17.1",
     "heroku-ssl-redirect": "^0.1.1",
     "mssql": "^9.0.1",
+    "mysql2": "^2.3.3",
+    "mysql2-promise": "^0.1.4",
+    "swagger-autogen": "^2.22.0",
     "swagger-jsdoc": "^6.2.7",
-    "swagger-ui-express": "^4.6.0"
+    "swagger-ui-express": "^4.6.0",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
